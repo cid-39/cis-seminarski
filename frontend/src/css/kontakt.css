@@ -1,0 +1,66 @@
+body{
+    background: linear-gradient(white, grey );    
+} 
+
+.forma{
+    padding: 50px 0px 40px;
+}
+
+.form-box{
+    max-width: 500px;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 6px;
+  resize: none;
+  }
+
+h1{
+    text-align: center;
+    color: red;
+}
+
+#textk{
+    width: 70%;
+    margin: auto;
+}
+
+.text{
+    margin: 0 300px ;
+    text-align: center;
+}
+
+text, p{
+    font-size: 20px ;
+}
+
+.poslednji-text{
+    text-align: center;
+    margin-top: 150px;
+    padding-bottom: 164px;
+}
+
+.footer{
+    position: relative;
+}
+
+
+@media only screen and (max-width:1650px){
+
+    #textk{
+        width: 80%;
+    }
+    .text{
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width:550px) {
+
+
+}

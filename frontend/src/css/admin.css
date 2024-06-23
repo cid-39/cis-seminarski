@@ -1,0 +1,21 @@
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Style for table headers */
+th {
+    background-color: #db4734;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style for table rows */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+}

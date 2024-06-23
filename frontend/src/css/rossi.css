@@ -1,0 +1,141 @@
+.rossi-text{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-right: 20px;
+    padding-bottom: 9px;
+  }
+
+
+.rossi .naslov1 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: white;
+    background-color: black;
+    border-radius: 6px;
+}
+
+.rossi .text p{
+    text-align: justify;
+    font-size: 16px;
+    color: black;
+    border-radius: 6px;
+}
+
+.levakolona1{
+    margin-right: 50px;
+}
+
+.desnakolona1{
+    justify-content: center;
+}
+#slikar1{
+    height: auto;
+    width: auto; 
+    width: 450px; 
+    border: solid black 4px;
+    border-radius: 6px;
+}
+ 
+.levakolona2{
+    margin-right: 50px;
+
+}
+
+.desnakolona2{
+    justify-self: center;
+}
+
+.rossi .naslov2 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: white;
+    background-color: black;
+    border-radius: 6px;
+}
+#slikar2{
+    height: auto;
+    width: auto; 
+    width: 450px; 
+    border: solid black 4px;
+    border-radius: 6px;
+} 
+
+.desnakolona3{
+    justify-content: center;
+}
+
+.levakolona3{
+    margin-right: 50px;
+}
+
+.rossi .naslov3 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    color: white;
+    background-color: black;
+    border-radius: 6px;
+}
+#slikar3{
+    height: auto;
+    width: auto; 
+    width: 450px; 
+    border: solid black 4px;
+    border-radius: 6px;
+}
+
+.footer{
+    position: relative;
+}
+
+body{
+    background: linear-gradient(white, grey );
+}
+
+@media only screen and (max-width:1050px){
+    .rossi-text{
+        flex-wrap: wrap-reverse;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .rossi-text p{
+        margin-bottom: 30px;
+    }
+    .levakolona1{
+        margin-right: 0;
+    }
+    #slikar1{
+     width: 100%;
+    }
+    /* 2 kolona */
+    .levakolona2{
+        margin-right: 0px ;
+        order: 4;
+    }
+    #slikar2{
+        width: 100%;
+    }
+    
+    .levakolona3{
+        margin-right: 0px;
+    }
+    #slikar3{
+        width: 100%;
+    }
+    
+    }
+
+    

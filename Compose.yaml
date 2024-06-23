@@ -1,0 +1,49 @@
+
+name: MotoGP
+ 
+services:
+  backend:
+    build: ./backend
+    container_name: MotoGP-back
+    networks:
+      - app-network
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    ports:
+      - 3001:3000
+ 
+  frontend:
+    build: ./frontend
+    container_name: MotoGP-front
+    networks:
+      - app-network
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+ 
+  database:
+    build: ./db
+    container_name: MotoGP-db
+    networks:
+      - app-network
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/my.cnf:/etc/mysql/conf.d/my-custom.cnf:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "student", "--password=student"]
+      interval: 10s
+      timeout: 10s
+      retries: 6
+ 
+networks:
+  app-network:
+    driver: bridge
+ 
+volumes:
+  mysql-data:
