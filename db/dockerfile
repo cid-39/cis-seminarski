@@ -5,6 +5,7 @@ ENV MYSQL_ROOT_PASSWORD=password
 ENV MYSQL_DATABASE=db
 ENV MYSQL_USER=student
 ENV MYSQL_PASSWORD=student
+ENV MYSQL_AUTHENTICATION_PLUGIN=caching_sha2_password
 
 COPY init.sql /docker-entrypoint-initdb.d/
 

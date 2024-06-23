@@ -9,7 +9,7 @@ const port = 3001;
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'student',
-    password: '12345678',
+    password: 'student',
     database: 'db'
 });
 
@@ -29,7 +29,7 @@ app.post('/submit-form', (req, res) => {
     const { name, email, message } = req.body;
 
     // Insert data into MySQL database
-    const sql = `INSERT INTO messages (name, email, message) VALUES (?, ?, ?)`;
+    const sql = `INSERT INTO Feedback (name, email, message) VALUES (?, ?, ?)`;
     connection.query(sql, [name, email, message], (err, result) => {
         if (err) {
             console.error('Error inserting data into database: ', err);

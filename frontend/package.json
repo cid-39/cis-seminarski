@@ -2,9 +2,9 @@
     "name": "node-backend-script",
     "version": "1.0.0",
     "description": "Node.js script for communicating with backend",
-    "main": "script.js",
+    "main": "index.js",
     "scripts": {
-      "start": "node src/script.js"
+      "start": "node src/index.js"
     },
     "author": "Your Name",
     "license": "MIT",

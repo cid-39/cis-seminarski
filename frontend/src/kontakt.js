@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(data => {
             alert(`Form submitted successfully!\nResponse from server: ${JSON.stringify(data)}`);
-            form.reset(); // Reset form fields
+            form.reset(); // brisanje unosa 
         })
         .catch((error) => {
             console.error('Error:', error);
