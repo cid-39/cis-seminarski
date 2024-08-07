@@ -64,7 +64,7 @@ nav .meni{
     padding: 30px;
     border-top: 3px solid red;
     background: black;
-    position: relative;
+    position: fixed;
     width: 100%;
     bottom: 0px;
     }

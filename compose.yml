@@ -1,0 +1,52 @@
+services:
+  front:
+    build: frontend/.
+    container_name: front
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+    environment:
+      BACK_HOST: backend
+
+  backend:
+    build: backend/.
+    container_name: backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: rootpassword
+      DB_NAME: db
+    networks:
+      - my-network
+  
+  db:
+    #image: mysql:8.0
+    #environment:
+    #  MYSQL_ROOT_PASSWORD: rootpassword
+    #  MYSQL_DATABASE: db
+    build: db/.
+    container_name: db
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=rootpassword"]
+      interval: 10s
+      timeout: 10s
+      retries: 6
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  mysql-data:

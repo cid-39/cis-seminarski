@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
             email: email,
             message: message
         };
-
+        console.log(JSON.stringify(formData))
         // Slanje 
-        fetch('http://localhost:3001/submit-form', {
+        fetch('http://localhost:3000/submit-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch((error) => {
             console.error('Error:', error);
-            alert('Error submitting form. Please try again later.');
+            alert('Error submitting form. Try again later.');
         });
     });
 });

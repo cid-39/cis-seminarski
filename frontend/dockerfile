@@ -1,19 +1,10 @@
-FROM node:14
+# Use the official Nginx image from the Docker Hub
+FROM nginx:alpine
 
-# Set working directory inside the container
-WORKDIR /app
+# Copy the content of your website to the Nginx server's default directory
+COPY ./src/ /usr/share/nginx/html
 
-# Copy package.json and package-lock.json to work directory
-COPY package*.json ./
+# Expose port 80
+EXPOSE 80
 
-# Install dependencies
-RUN npm install
-
-# Copy rest of the application code to work directory
-COPY . .
-
-# Expose port 3000 (adjust as needed)
-EXPOSE 3000
-
-# Command to run when container starts
-CMD ["npm", "start"]
+# No need to define a CMD or ENTRYPOINT, as Nginx's default command will run

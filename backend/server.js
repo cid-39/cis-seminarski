@@ -1,16 +1,21 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
-const port = 3001;
+app.use(cors());
+const port = 3000;
+
+// pokusaj popravke
+//setTimeout(10000)
 
 // MySQL Connection
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'student',
-    password: 'student',
-    database: 'db'
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || 'rootpassword',
+    database: process.env.DB_NAME || 'db'
 });
 
 connection.connect(err => {
@@ -26,6 +31,11 @@ app.use(bodyParser.json());
 
 // Endpoint to handle form submission
 app.post('/submit-form', (req, res) => {
+    
+    /////
+    console.log(req.body);
+    /////
+    
     const { name, email, message } = req.body;
 
     // Insert data into MySQL database
@@ -42,9 +52,9 @@ app.post('/submit-form', (req, res) => {
 });
 
 // Endpoint to fetch data from MySQL database
-app.get('/api/data', (req, res) => {
+app.get('/data', (req, res) => {
     // Select data from MySQL database
-    const sql = 'SELECT * FROM your_table_name'; // Replace with your table name
+    const sql = 'SELECT * FROM Feedback'; // Replace with your table name
     connection.query(sql, (err, results) => {
         if (err) {
             console.error('Error fetching data from database: ', err);
