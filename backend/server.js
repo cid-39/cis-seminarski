@@ -7,13 +7,11 @@ const app = express();
 app.use(cors());
 const port = 3000;
 
-// pokusaj popravke
-//setTimeout(10000)
 
-// MySQL Connection
+// povezivanje sa mysql bazom
 const connection = mysql.createConnection({
     host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
+    user: process.env.DB_USER || 'root',    // koristimo root-a womp womp
     password: process.env.DB_PASSWORD || 'rootpassword',
     database: process.env.DB_NAME || 'db'
 });
@@ -26,10 +24,10 @@ connection.connect(err => {
     console.log('Connected to MySQL database');
 });
 
-// Middleware to parse JSON bodies
+// Obrada json-a iz request-a
 app.use(bodyParser.json());
 
-// Endpoint to handle form submission
+// Endpoint za ubacivanje novog reda u bazu
 app.post('/submit-form', (req, res) => {
     
     /////
@@ -38,7 +36,7 @@ app.post('/submit-form', (req, res) => {
     
     const { name, email, message } = req.body;
 
-    // Insert data into MySQL database
+    // Ubacivanje u bazu
     const sql = `INSERT INTO Feedback (name, email, message) VALUES (?, ?, ?)`;
     connection.query(sql, [name, email, message], (err, result) => {
         if (err) {
@@ -51,21 +49,20 @@ app.post('/submit-form', (req, res) => {
     });
 });
 
-// Endpoint to fetch data from MySQL database
+// Endpoint za dobijanje svih redova baze
 app.get('/data', (req, res) => {
-    // Select data from MySQL database
-    const sql = 'SELECT * FROM Feedback'; // Replace with your table name
+    const sql = 'SELECT * FROM Feedback';
     connection.query(sql, (err, results) => {
         if (err) {
             console.error('Error fetching data from database: ', err);
             res.status(500).json({ error: 'Error fetching data from database' });
             return;
         }
-        res.json(results); // Send data as JSON response
+        res.json(results); // vracanje query-ja u json obliku
     });
 });
 
-// Start the server
+// paljenje servera
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });

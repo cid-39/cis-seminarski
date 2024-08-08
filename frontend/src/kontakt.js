@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        // Spremanje podataka koji se salju backend-u
+        
         const formData = {
             name: name,
             email: email,
             message: message
         };
         console.log(JSON.stringify(formData))
-        // Slanje 
+         
         fetch('http://localhost:3000/submit-form', {
             method: 'POST',
             headers: {
@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.json())
         .then(data => {
-            alert(`Form submitted successfully!\nResponse from server: ${JSON.stringify(data)}`);
-            form.reset(); // brisanje unosa 
+            alert(`Form submitted successfully!`);
+            form.reset(); 
         })
         .catch((error) => {
             console.error('Error:', error);

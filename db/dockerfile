@@ -1,6 +1,5 @@
 FROM mysql:8.0
 
-# Environment variables
 ENV MYSQL_ROOT_PASSWORD=rootpassword
 ENV MYSQL_DATABASE=db
 ENV MYSQL_USER=student

@@ -1,10 +1,5 @@
-# Use the official Nginx image from the Docker Hub
 FROM nginx:alpine
 
-# Copy the content of your website to the Nginx server's default directory
 COPY ./src/ /usr/share/nginx/html
 
-# Expose port 80
 EXPOSE 80
-
-# No need to define a CMD or ENTRYPOINT, as Nginx's default command will run
