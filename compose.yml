@@ -32,6 +32,8 @@ services:
         condition: service_started
       db:
         condition: service_healthy
+    volumes:
+      - ./frontend/src:/usr/share/nginx/html
         
   db:
     build: db/.
