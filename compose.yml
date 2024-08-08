@@ -14,6 +14,10 @@ services:
     env_file: "backend/back.env"
     networks:
       - app-network
+    deploy:
+      resources:
+        limits:
+          memory: 2000M
 
   front:
     build: frontend/.
@@ -44,6 +48,10 @@ services:
       - mysql-data:/var/lib/mysql
     networks:
       - app-network
+    deploy:
+      resources:
+        limits:
+          memory: 2000M
 
 networks:
   app-network:
