@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        
+        if ( name == "" || email == "" || message == "") {
+            alert('Error submitting form. Form can not be empty.');
+            return;
+        }
+
         const formData = {
             name: name,
             email: email,
